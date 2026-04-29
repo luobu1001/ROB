@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品展示 - 罗布设计工作室</title>
+    <link rel="icon" type="image/png" href="LOGO.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --primary-color: #333;
+            --secondary-color: #666;
+            --accent-color: #8B7355;
+            --light-color: #f5f5f5;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--primary-color);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .project-card {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6d5a3f;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 w-full bg-white bg-opacity-95 z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="LOGO.png" alt="罗布设计工作室" class="h-10">
+                <span class="ml-3 text-xl font-medium">罗布设计工作室</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="projects.html" class="nav-link active">作品展示</a>
+                <a href="services.html" class="nav-link">服务内容</a>
+                <a href="about.html" class="nav-link">关于我们</a>
+                <a href="contact.html" class="nav-link">联系方式</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden bg-white hidden">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html" class="py-2 mobile-nav-link">首页</a>
+                <a href="projects.html" class="py-2 mobile-nav-link">作品展示</a>
+                <a href="services.html" class="py-2 mobile-nav-link">服务内容</a>
+                <a href="about.html" class="py-2 mobile-nav-link">关于我们</a>
+                <a href="contact.html" class="py-2 mobile-nav-link">联系方式</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="pt-32 pb-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-light text-center fade-in">精选作品</h1>
+            <p class="text-gray-600 text-center mt-4 fade-in">每一个作品都是我们对美好生活的诠释</p>
+        </div>
+    </section>
+
+    <!-- 作品展示 -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 项目1 -->
+                <div class="project-card bg-white overflow-hidden rounded-sm shadow-sm fade-in">
+                    <div class="relative overflow-hidden">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/326a577c264f43e9989973f48172a407~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260429132723FA45EFCF2D8C0AACAB31&rrcfp=f06b921b&x-expires=1780032472&x-signature=Rko%2F9gjyKMJM1QyHyRnEGBlO7KQ%3D" alt="现代简约客厅" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium mb-2">现代简约客厅</h3>
+                        <p class="text-gray-600 mb-4">简约而不简单，注重空间的通透感和自然光线的利用，打造舒适宜居的生活环境。</p>
+                        <a href="#" class="text-accent-color hover:underline flex items-center project-details-btn">
+                            查看详情 <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 项目2 -->
+                <div class="project-card bg-white overflow-hidden rounded-sm shadow-sm fade-in">
+                    <div class="relative overflow-hidden">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/97a14ccd7d9f43f5a3ec86c002d8b1f3~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260429132723FA45EFCF2D8C0AACAB31&rrcfp=f06b921b&x-expires=1780032477&x-signature=V%2BhiQ7LsO7%2FfVe%2BjGN8MQOvvybE%3D" alt="北欧风格卧室" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium mb-2">北欧风格卧室</h3>
+                        <p class="text-gray-600 mb-4">以自然材质和柔和色调为主，营造温馨舒适的睡眠环境，让身心得到彻底放松。</p>
+                        <a href="#" class="text-accent-color hover:underline flex items-center project-details-btn">
+                            查看详情 <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 项目3 -->
+                <div class="project-card bg-white overflow-hidden rounded-sm shadow-sm fade-in">
+                    <div class="relative overflow-hidden">
+                        <img src="https://p26-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/fc57a539e779485dabbc1a1520867a99~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260429132723FA45EFCF2D8C0AACAB31&rrcfp=f06b921b&x-expires=1780032477&x-signature=a8PHgFHB0V6F17K3l6mFpiueuY4%3D" alt="极简主义厨房" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium mb-2">极简主义厨房</h3>
+                        <p class="text-gray-600 mb-4">简洁的线条和功能性设计相结合，打造高效实用且美观的烹饪空间。</p>
+                        <a href="#" class="text-accent-color hover:underline flex items-center project-details-btn">
+                            查看详情 <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 项目4 -->
+                <div class="project-card bg-white overflow-hidden rounded-sm shadow-sm fade-in">
+                    <div class="relative overflow-hidden">
+                        <img src="https://p26-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/1681aa35835d458ca1c6be4da232e20f~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260429132723FA45EFCF2D8C0AACAB31&rrcfp=f06b921b&x-expires=1780032473&x-signature=fyOmcuEyVeRXMyuhWjSJoLJ5Ido%3D" alt="现代浴室设计" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium mb-2">现代浴室设计</h3>
+                        <p class="text-gray-600 mb-4">以白色为主调，搭配玻璃和金属元素，创造干净整洁且富有现代感的卫浴空间。</p>
+                        <a href="#" class="text-accent-color hover:underline flex items-center project-details-btn">
+                            查看详情 <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <img src="LOGO.png" alt="罗布设计工作室" class="h-8">
+                </div>
+                
+                <div class="text-gray-600 text-sm">
+                    <p>© 2026 罗布设计工作室. 保留所有权利.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 项目详情模态框 -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden">
+        <div class="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-medium" id="modal-title">项目标题</h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-800">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div id="modal-content">
+                    <!-- 动态内容将通过JavaScript填充 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                ScrollTrigger.create({
+                    trigger: element,
+                    start: 'top 80%',
+                    onEnter: () => element.classList.add('visible'),
+                    once: true
+                });
+            });
+        });
+        
+        // 移动端菜单
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 移动端导航链接点击
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // 项目详情模态框
+        const modal = document.getElementById('project-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+        const closeModal = document.getElementById('close-modal');
+        const projectButtons = document.querySelectorAll('.project-details-btn');
+        
+        // 项目数据
+        const projectsData = [
+            {
+                id: 1,
+                title: '现代简约客厅',
+                description: '这个项目采用现代简约风格，注重空间的通透感和自然光线的利用。我们通过精简的家具布局、中性色调和自然材质，创造出一个既美观又实用的生活空间。',
+                features: [
+                    '开放式布局，增强空间感',
+                    '大面积落地窗，引入自然光线',
+                    '简约家具搭配，减少视觉干扰',
+                    '自然材质运用，提升空间质感'
+                ],
+                image: 'https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/326a577c264f43e9989973f48172a407~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260429132723FA45EFCF2D8C0AACAB31&rrcfp=f06b921b&x-expires=1780032472&x-signature=Rko%2F9gjyKMJM1QyHyRnEGBlO7KQ%3D'
+            },
+            {
+                id: 2,
+                title: '北欧风格卧室',
+                description: '这个卧室设计采用北欧风格，以自然材质和柔和色调为主，营造温馨舒适的睡眠环境。我们注重细节处理和材质选择，让整个空间既简约又富有质感。',
+                features: [
+                    '原木家具，自然温馨',
+                    '柔和灯光设计，营造舒适氛围',
+                    '充足储物空间，保持整洁',
+                    '精选床品，提升睡眠质量'
+                ],
+                image: 'https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/97a14ccd7d9f43f5a3ec86c002d8b1f3~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260429132723FA45EFCF2D8C0AACAB31&rrcfp=f06b921b&x-expires=1780032477&x-signature=V%2BhiQ7LsO7%2FfVe%2BjGN8MQOvvybE%3D'
+            },
+            {
+                id: 3,
+                title: '极简主义厨房',
+                description: '这个厨房设计采用极简主义风格，简洁的线条和功能性设计相结合，打造高效实用且美观的烹饪空间。我们注重收纳设计和动线规划，让烹饪变得更加轻松愉快。',
+                features: [
+                    '整体橱柜设计，最大化利用空间',
+                    '集成电器，保持视觉整洁',
+                    '大理石台面，美观耐用',
+                    '合理动线规划，提升烹饪效率'
+                ],
+                image: 'https://p26-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/fc57a539e779485dabbc1a1520867a99~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260429132723FA45EFCF2D8C0AACAB31&rrcfp=f06b921b&x-expires=1780032477&x-signature=a8PHgFHB0V6F17K3l6mFpiueuY4%3D'
+            },
+            {
+                id: 4,
+                title: '现代浴室设计',
+                description: '这个浴室设计采用现代风格，以白色为主调，搭配玻璃和金属元素，创造干净整洁且富有现代感的卫浴空间。我们注重防水处理和细节设计，确保空间既美观又实用。',
+                features: [
+                    '干湿分离设计，提升使用舒适度',
+                    '大尺寸淋浴区，享受舒适沐浴体验',
+                    '智能马桶，提升生活品质',
+                    '充足储物空间，保持浴室整洁'
+                ],
+                image: 'https://p26-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/1681aa35835d458ca1c6be4da232e20f~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260429132723FA45EFCF2D8C0AACAB31&rrcfp=f06b921b&x-expires=1780032473&x-signature=fyOmcuEyVeRXMyuhWjSJoLJ5Ido%3D'
+            }
+        ];
+        
+        // 打开模态框
+        projectButtons.forEach((button, index) => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const project = projectsData[index];
+                
+                modalTitle.textContent = project.title;
+                
+                let content = `
+                    <div class="mb-8">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-auto">
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-xl font-medium mb-4">项目描述</h4>
+                        <p class="text-gray-600">${project.description}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-medium mb-4">设计特点</h4>
+                        <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                `;
+                
+                project.features.forEach(feature => {
+                    content += `<li>${feature}</li>`;
+                });
+                
+                content += `
+                        </ul>
+                    </div>
+                `;
+                
+                modalContent.innerHTML = content;
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // 关闭模态框
+        closeModal.addEventListener('click', function() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // 点击模态框外部关闭
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

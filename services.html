@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务内容 - 罗布设计工作室</title>
+    <link rel="icon" type="image/png" href="LOGO.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --primary-color: #333;
+            --secondary-color: #666;
+            --accent-color: #8B7355;
+            --light-color: #f5f5f5;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--primary-color);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .service-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6d5a3f;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 w-full bg-white bg-opacity-95 z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="LOGO.png" alt="罗布设计工作室" class="h-10">
+                <span class="ml-3 text-xl font-medium">罗布设计工作室</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="projects.html" class="nav-link">作品展示</a>
+                <a href="services.html" class="nav-link active">服务内容</a>
+                <a href="about.html" class="nav-link">关于我们</a>
+                <a href="contact.html" class="nav-link">联系方式</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden bg-white hidden">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html" class="py-2 mobile-nav-link">首页</a>
+                <a href="projects.html" class="py-2 mobile-nav-link">作品展示</a>
+                <a href="services.html" class="py-2 mobile-nav-link">服务内容</a>
+                <a href="about.html" class="py-2 mobile-nav-link">关于我们</a>
+                <a href="contact.html" class="py-2 mobile-nav-link">联系方式</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="pt-32 pb-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-light text-center fade-in">服务内容</h1>
+            <p class="text-gray-600 text-center mt-4 fade-in">全方位的设计服务，为您打造理想家园</p>
+        </div>
+    </section>
+
+    <!-- 服务内容 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 服务1 -->
+                <div class="service-card p-8 border border-gray-100 fade-in">
+                    <div class="w-16 h-16 bg-gray-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-2xl text-accent-color"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">户型优化</h3>
+                    <p class="text-gray-600">根据您的生活习惯和需求，对房屋结构进行合理规划和优化，最大化利用空间，提升居住舒适度。</p>
+                </div>
+                
+                <!-- 服务2 -->
+                <div class="service-card p-8 border border-gray-100 fade-in">
+                    <div class="w-16 h-16 bg-gray-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-2xl text-accent-color"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">风格设计</h3>
+                    <p class="text-gray-600">结合您的审美喜好和生活需求，打造专属的空间风格，包括色彩搭配、材质选择、家具布置等。</p>
+                </div>
+                
+                <!-- 服务3 -->
+                <div class="service-card p-8 border border-gray-100 fade-in">
+                    <div class="w-16 h-16 bg-gray-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-drafting-compass text-2xl text-accent-color"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">全套施工图</h3>
+                    <p class="text-gray-600">提供专业详细的施工图纸，包括平面布置图、立面图、节点大样图等，确保施工过程准确无误。</p>
+                </div>
+                
+                <!-- 服务4 -->
+                <div class="service-card p-8 border border-gray-100 fade-in">
+                    <div class="w-16 h-16 bg-gray-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-couch text-2xl text-accent-color"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">软装搭配</h3>
+                    <p class="text-gray-600">从家具、灯具、窗帘到装饰品，提供全方位的软装搭配方案，营造和谐统一的空间氛围。</p>
+                </div>
+                
+                <!-- 服务5 -->
+                <div class="service-card p-8 border border-gray-100 fade-in">
+                    <div class="w-16 h-16 bg-gray-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-shopping-cart text-2xl text-accent-color"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">主材陪同选购</h3>
+                    <p class="text-gray-600">专业设计师陪同您选购主材，提供专业建议，帮助您在预算范围内选择最合适的材料。</p>
+                </div>
+                
+                <!-- 服务6 -->
+                <div class="service-card p-8 border border-gray-100 fade-in">
+                    <div class="w-16 h-16 bg-gray-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-hard-hat text-2xl text-accent-color"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">工地全程对接落地</h3>
+                    <p class="text-gray-600">设计师全程跟踪施工进度，解决现场问题，确保设计方案完美落地，让您省心省力。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <img src="LOGO.png" alt="罗布设计工作室" class="h-8">
+                </div>
+                
+                <div class="text-gray-600 text-sm">
+                    <p>© 2026 罗布设计工作室. 保留所有权利.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 初始化GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                ScrollTrigger.create({
+                    trigger: element,
+                    start: 'top 80%',
+                    onEnter: () => element.classList.add('visible'),
+                    once: true
+                });
+            });
+        });
+        
+        // 移动端菜单
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 移动端导航链接点击
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
