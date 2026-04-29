@@ -5,6 +5,21 @@
       "use": "@vercel/static"
     }
   ],
+  "headers": [
+    {
+      "source": "(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; font-src * data: blob:;"
+        }
+      ]
+    }
+  ],
   "routes": [
     { "src": "/", "dest": "/index.html" },
     { "src": "/index.html", "dest": "/index.html" },
