@@ -1,0 +1,17 @@
+{
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/index.html", "dest": "/index.html" },
+    { "src": "/projects.html", "dest": "/projects.html" },
+    { "src": "/services.html", "dest": "/services.html" },
+    { "src": "/about.html", "dest": "/about.html" },
+    { "src": "/contact.html", "dest": "/contact.html" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
